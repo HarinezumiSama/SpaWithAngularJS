@@ -15,6 +15,8 @@
     {
         $scope.dishes = '';
         $scope.message = '';
+        $scope.lunchMenuClass = "";
+        $scope.messageClass = "";
 
         $scope.onCheckButtonClicked = function ()
         {
@@ -22,8 +24,13 @@
             if (isNullOrWhitespace(dishesString))
             {
                 $scope.message = 'Please enter data first';
+                $scope.lunchMenuClass = "noDataEntered";
+                $scope.messageClass = "noDataEntered";
                 return;
             }
+
+            $scope.lunchMenuClass = "dataEntered";
+            $scope.messageClass = "dataEntered";
 
             var dishes = dishesString.split(',');
             var dishCount = 0;
