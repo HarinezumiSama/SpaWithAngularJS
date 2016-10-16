@@ -56,7 +56,7 @@
 
         controller.search = function ()
         {
-            controller.found = [];
+            controller.found = null;
             if (isNullOrWhitespace(controller.searchTerm))
             {
                 return;
