@@ -51,7 +51,7 @@
     {
         var controller = this;
 
-        controller.found = [];
+        controller.found = null;
         controller.searchTerm = '';
 
         controller.search = function ()
@@ -106,8 +106,13 @@
         controller.hasItems = function ()
         {
             var items = controller.items;
-            return items && items.length && items.length >= 0;
+            return items && angular.isArray(items) && items.length > 0;
         };
 
+        controller.isNothingFound = function ()
+        {
+            var items = controller.items;
+            return angular.isArray(items) && items.length <= 0;
+        };
     }
 })();
