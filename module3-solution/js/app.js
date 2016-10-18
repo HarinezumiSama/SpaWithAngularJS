@@ -59,6 +59,7 @@
             controller.found = null;
             if (isNullOrWhitespace(controller.searchTerm))
             {
+                controller.found = [];
                 return;
             }
 
