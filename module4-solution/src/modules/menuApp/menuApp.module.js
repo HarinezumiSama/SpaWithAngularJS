@@ -1,8 +1,9 @@
+
 (function()
 {
     'use strict';
 
-    angular.module('MenuApp', ['ui.router', 'MenuData'])
+    angular.module('MenuApp', ['ui.router', 'MenuData', 'LoadingSpinner'])
         .run(RunMenuApp);
 
     RunMenuApp.$inject = ['$rootScope'];

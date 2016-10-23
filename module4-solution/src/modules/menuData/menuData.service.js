@@ -21,7 +21,10 @@
                 .then(
                     function (response)
                     {
-                        return response.data.sort(function (l, r) { return l.name.localeCompare(r.name); });
+                        var data = response.data;
+
+                        var result = response.data.sort(function (l, r) { return l.name.localeCompare(r.name); });
+                        return result;
                     })
                 .catch(
                     function (reason)
