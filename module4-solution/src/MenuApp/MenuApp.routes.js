@@ -8,22 +8,33 @@
     RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
     function RoutesConfig($stateProvider, $urlRouterProvider)
     {
-      $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/');
 
-      $stateProvider
-          .state(
-              'home',
-              {
-                  url: '/',
-                  templateUrl: 'src/MenuApp/templates/home.template.html'
-              });
-        //   .state(
-        //       'mainList',
-        //       {
-        //           url: '/main-list',
-        //           templateUrl: 'src/shoppinglist/templates/main-shoppinglist.template.html',
-        //           controller: 'MainShoppingListController as mainList'
-        //       });
+        $stateProvider
+            .state(
+                'home',
+                {
+                    url: '/',
+                    templateUrl: 'src/MenuApp/templates/home.template.html'
+                })
+            .state(
+                'categories',
+                {
+                    url: '/categories',
+                    templateUrl: 'src/MenuApp/templates/categories.template.html',
+                    controller: 'CategoriesViewController as controller',
+                    resolve:
+                    {
+                        categories:
+                        [
+                            'MenuDataService',
+                            function (MenuDataService)
+                            {
+                                return MenuDataService.getAllCategories();
+                            }
+                        ]
+                    }
+                });
     }
 
 })();

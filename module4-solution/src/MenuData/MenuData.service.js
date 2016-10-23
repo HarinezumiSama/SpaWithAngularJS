@@ -12,7 +12,7 @@
         var service = this;
 
         var CategoriesApiUrl = BaseApiUrl + 'categories.json';
-        var MenuItemsApiUrl = BaseApiUrl + 'menu_items.json?';
+        var MenuItemsApiUrl = BaseApiUrl + 'menu_items.json';
 
         service.getAllCategories = function ()
         {
@@ -21,7 +21,7 @@
                 .then(
                     function (response)
                     {
-                        return response.data;
+                        return response.data.sort(function (l, r) { return l.short_name.localeCompare(r.short_name); });
                     })
                 .catch(
                     function (reason)
@@ -52,7 +52,7 @@
                 .catch(
                     function (reason)
                     {
-                        console.log('Error getting categories: ', reason);
+                        console.log("Error getting items for category '", categoryShortName ,"': ", reason);
                         throw reason;
                     });
 
