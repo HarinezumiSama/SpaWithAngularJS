@@ -6,8 +6,8 @@
         .service('MenuDataService', MenuDataService)
         .constant('BaseApiUrl', 'https://davids-restaurant.herokuapp.com/');
 
-    MenuDataService.$inject = ['$http', 'BaseApiUrl'];
-    function MenuDataService($http, BaseApiUrl)
+    MenuDataService.$inject = ['BaseApiUrl', '$http', '$q', '$timeout'];
+    function MenuDataService(BaseApiUrl, $http, $q, $timeout)
     {
         var service = this;
 
@@ -26,6 +26,14 @@
                         var result = response.data.sort(function (l, r) { return l.name.localeCompare(r.name); });
                         return result;
                     })
+                // .then(
+                //     function (result)
+                //     {
+                //         var deferred = $q.defer();
+                //         $timeout(function () { deferred.resolve(result); }, 3000);
+                //         return deferred.promise;
+                //     }
+                // )
                 .catch(
                     function (reason)
                     {
@@ -60,6 +68,14 @@
 
                         return result;
                     })
+                // .then(
+                //     function (result)
+                //     {
+                //         var deferred = $q.defer();
+                //         $timeout(function () { deferred.resolve(result); }, 3000);
+                //         return deferred.promise;
+                //     }
+                // )
                 .catch(
                     function (reason)
                     {

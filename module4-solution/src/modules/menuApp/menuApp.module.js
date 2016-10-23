@@ -3,7 +3,7 @@
 {
     'use strict';
 
-    angular.module('MenuApp', ['ui.router', 'MenuData', 'LoadingSpinner'])
+    angular.module('MenuApp', ['ui.router', 'MenuData'])
         .run(RunMenuApp);
 
     RunMenuApp.$inject = ['$rootScope'];

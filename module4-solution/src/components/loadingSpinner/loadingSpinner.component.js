@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    angular.module('LoadingSpinner')
+    angular.module('MenuApp')
         .component(
             'loadingSpinner',
             {
@@ -15,7 +15,7 @@
     {
         var controller = this;
 
-        controller.isVisible = false;
+        controller.isVisible = true;
 
         var cancellers = [];
 
