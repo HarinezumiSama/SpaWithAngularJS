@@ -21,7 +21,7 @@
                 .then(
                     function (response)
                     {
-                        return response.data.sort(function (l, r) { return l.short_name.localeCompare(r.short_name); });
+                        return response.data.sort(function (l, r) { return l.name.localeCompare(r.name); });
                     })
                 .catch(
                     function (reason)
@@ -47,7 +47,15 @@
                 .then(
                     function (response)
                     {
-                        return response.data;
+                        var data = response.data;
+
+                        var result =
+                        {
+                            category: data.category,
+                            items: data.menu_items.sort(function (l, r) { return l.name.localeCompare(r.name); })
+                        };
+
+                        return result;
                     })
                 .catch(
                     function (reason)

@@ -7,6 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 
     <title>Module 4 Solution: Restaurant Menu Application</title>
@@ -16,16 +17,22 @@
     <script src="lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
-    <script src="src/MenuApp/MenuApp.module.js"></script>
-    <script src="src/MenuData/MenuData.module.js"></script>
+    <script src="src/modules/menuApp/menuApp.module.js"></script>
+    <script src="src/modules/menuData/menuData.module.js"></script>
 
     <!-- Routes -->
-    <script src="src/MenuApp/MenuApp.routes.js"></script>
+    <script src="src/modules/menuApp/menuApp.routes.js"></script>
 
-    <!-- Artifacts -->
-    <script src="src/MenuApp/categoriesView.controller.js"></script>
-    <script src="src/MenuData/MenuData.service.js"></script>
+    <!-- Services -->
+    <script src="src/modules/menuData/menuData.service.js"></script>
+
+    <!-- Controllers -->
+    <script src="src/modules/menuApp/categoriesView.controller.js"></script>
+    <script src="src/modules/menuApp/itemsView.controller.js"></script>
+
+    <!-- Components -->
     <script src="src/components/categories/categories.component.js"></script>
+    <script src="src/components/items/items.component.js"></script>
   </head>
   <body>
     <h1>Module 4 Solution: Restaurant Menu Application</h1>
