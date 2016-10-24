@@ -1,3 +1,8 @@
+.activeItem {
+    font-weight: bold;
+    background-color: #D0D0F0;
+}
+
 .loaderOverlay {
     position: absolute;
     left: 0;

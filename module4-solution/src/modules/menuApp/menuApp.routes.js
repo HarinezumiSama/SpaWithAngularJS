@@ -37,9 +37,9 @@
             });
 
         $stateProvider.state(
-            'items',
+            'categories.items',
             {
-                url: '/items/{category:string}',
+                url: '/{category:string}/items',
                 templateUrl: 'src/modules/menuApp/templates/itemsView.template.html',
                 controller: 'ItemsViewController as controller',
                 resolve:
