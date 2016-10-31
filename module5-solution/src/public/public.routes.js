@@ -8,7 +8,8 @@ angular.module('public')
  * Configures the routes and views
  */
 routeConfig.$inject = ['$stateProvider'];
-function routeConfig ($stateProvider) {
+function routeConfig ($stateProvider)
+{
   // Routes
   $stateProvider
     .state('public', {
@@ -41,5 +42,42 @@ function routeConfig ($stateProvider) {
         }]
       }
     });
+
+    $stateProvider.state(
+        'public.signup',
+        {
+            url: '/signup',
+            templateUrl: 'src/public/signup/signup.template.html',
+            controller: 'SignUpController as controller'
+        });
+
+    $stateProvider.state(
+        'public.myinfo',
+        {
+            url: '/myinfo',
+            templateUrl: 'src/public/myInfo/myInfo.template.html',
+            controller: 'MyInfoController as controller',
+            resolve:
+            {
+                userInfo:
+                [
+                    'UserInfoService',
+                    function (UserInfoService)
+                    {
+                        return UserInfoService.getUserInfo();
+                    }
+                ],
+                itemInfo:
+                [
+                    'UserInfoService',
+                    function (UserInfoService)
+                    {
+                        var userInfo = UserInfoService.getUserInfo();
+
+                        return userInfo ? UserInfoService.getItemInfoAsync(userInfo.favoriteDish) : null
+                    }
+                ]
+            }
+        });
 }
 })();

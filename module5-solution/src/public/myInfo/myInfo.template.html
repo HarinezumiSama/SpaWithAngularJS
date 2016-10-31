@@ -1,0 +1,70 @@
+<div ng-if="!controller.isSignedUp()" class="text-center">
+    Not Signed Up Yet.
+    <div>
+        <a ui-sref="public.signup">Sign up Now!</a>
+    </div>
+</div>
+<div ng-if="controller.isSignedUp()" class="container">
+    <div class="row text-center">
+        <h1>My Info</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2">
+            First Name:
+        </div>
+        <div class="col-xs-4">
+            <b>{{ controller.userInfo.firstName }}</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2">
+            Last Name:
+        </div>
+        <div class="col-xs-4">
+            <b>{{ controller.userInfo.lastName }}</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2">
+           Email:
+        </div>
+        <div class="col-xs-4">
+            <b>{{ controller.userInfo.email }}</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2">
+            Phone Number:
+        </div>
+        <div class="col-xs-4">
+            <b>{{ controller.userInfo.phoneNumber }}</b>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2">
+            Favorite Dish:
+        </div>
+        <div class="col-xs-4">
+            <div>
+                <b>{{ controller.itemInfo.name }}</b>
+            </div>
+            &nbsp;
+            <div>
+                <i>{{ controller.itemInfo.description }}</i>
+            </div>
+            &nbsp;
+            <div>
+                <img ng-src="{{controller.itemImagePath}}" alt="{{controller.itemInfo.name}}" />
+            </div>
+        </div>
+    </div>
+</div>

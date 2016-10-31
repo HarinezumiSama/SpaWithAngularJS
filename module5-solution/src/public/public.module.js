@@ -1,8 +1,6 @@
-(function() {
-"use strict";
-/**
- * Public restaurant application. Includes the common module and ui-router.
- */
-angular.module('public', ['ui.router', 'common']);
+(function()
+{
+    'use strict';
 
+    angular.module('public', ['ui.router', 'common']);
 })();
